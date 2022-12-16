@@ -39,7 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+
+        # $logbook->nama_kolom_tabel = $request->attr_name_input
+        $user->nama = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->route('users.index');
     }
 
     /**
